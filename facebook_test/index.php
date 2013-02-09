@@ -13,6 +13,7 @@ $user = $facebook->getUser();
 if ($user) {
     try {
         $user_profile = $facebook->api('/me');
+        $friends = $facebook->api('/me/friends');
     } catch (FacebookApiException $e) {
         error_log($e);
         $user = null;
@@ -25,7 +26,7 @@ if ($user) {
     $loginUrl = $facebook->getLoginUrl();
 }
 
-$larry = $facebook->api('/larryrubin');
+
 
 ?>
 <!doctype html>
@@ -67,13 +68,14 @@ $larry = $facebook->api('/larryrubin');
             <img src="https://graph.facebook.com/<?php echo $user; ?>/picture">
         
             <h3>Your User Object (/me)</h3>
+            <?php var_dump($friends); ?>
             <pre><?php print_r($user_profile); ?></pre>
+            <pre><?php print_r($friends); ?></pre>
+            
         <?php else: ?>
             <strong><em>You are not Connected.</em></strong>
         <?php endif ?>
         
-        <h3>Public profile of Larry</h3>
-        <img src="https://graph.facebook.com/larryrubin/picture">
-        <?php echo $larry['name']; ?>
+        
     </body>
 </html>
