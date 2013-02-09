@@ -68,6 +68,7 @@ if ($user) {
             <img src="https://graph.facebook.com/<?php echo $user; ?>/picture">
         
             <h3>Your User Object (/me)</h3>
+            <img src="https://graph.facebook.com/<?php echo($friends["data"][377]["id"]); ?>/picture" />
             <?php var_dump($friends); ?>
             <pre><?php print_r($user_profile); ?></pre>
             <pre><?php print_r($friends); ?></pre>
