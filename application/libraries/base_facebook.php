@@ -604,6 +604,9 @@ abstract class BaseFacebook
         'access_token' => $this->getUserAccessToken(),
       ), $params)
     );
+    $facebook->destroySession();       
+        $this->session->sess_destroy();  // Assuming you have session helper loaded
+        $this->load->view('logout');
   }
 
   /**
