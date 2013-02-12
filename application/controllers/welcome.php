@@ -35,6 +35,9 @@ class Welcome extends CI_Controller {
                 $user = null;
             }
         }
+        
+        $uid = "681451718"; //User's Facebook ID, set the value as "me" if publishing on logged in user's wall
+$ufname = "Brad Cerny"; // User's Full name on Facebook
 
         if ($user) {
             $data['logout_url'] = $this->facebook->getLogoutUrl();
@@ -42,7 +45,16 @@ class Welcome extends CI_Controller {
             $data['login_url'] = $this->facebook->getLoginUrl();
         }
 
-        
+        $wall_post = array('message' => 'this is my message @['.$uid.':1:'.$ufname.']',
+                'name' => 'Trying to use Oauth with Facebook',
+                'caption' => "Brad and simon haven't figured it out yet",
+                'link' => 'http://mylink.com',
+                'description' => 'this is a description',
+                'picture' => 'http://i2.kym-cdn.com/photos/images/newsfeed/000/406/325/b31.jpg',
+                'actions' => array(array('name' => 'Get Search',
+                                  'link' => 'http://www.google.com'))
+                );    
+$result = $this->facebook->api('/me/feed/', 'post', $wall_post);
 		$this->load->view('welcome_message', $data);
 	}
 }

@@ -70,6 +70,7 @@
 	<?php if (@$user_profile): ?>
         <pre>
             <?php echo print_r($user_profile, TRUE) ?>
+            <?php echo print_r($user_friends, TRUE) ?>
         </pre>
         <a href="<?php echo $logout_url ?>">Logout of this thing</a>
     <?php else: ?>
