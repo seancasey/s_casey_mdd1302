@@ -50,6 +50,23 @@ header{padding-top: 10px;}
 }
 .center-image{text-align: center;}
 
+.ui-input-text{
+		max-width: 500px;
+	}
+.ui-btn{
+	max-width: 500px;
+}
+.intro-panel{max-width: 500px;
+	margin:0 auto;
+	
+}
+div.panel.callout {
+	background: #191919;
+	text-align: center;
+	margin:0 auto;
+	margin-bottom:1em;
+}
+
 
 
 
@@ -70,18 +87,25 @@ header{padding-top: 10px;}
 @media only screen 
 and (min-width : 320px) 
 and (max-width : 480px) {
-#logo{max-width: 200px;}
-.ui-input-text{
-	max-width: 320px;
-}
+	#logo{max-width: 200px;}
+	.ui-input-text{
+		max-width: 320px;
+	}
+	.ui-btn{
+		max-width: 320px;
+	}
+	
 }
 /* Media Query: iPads (portrait and landscape)  */
 @media only screen 
 and (min-width : 768px) 
 and (max-width : 1024px) {
-	#logo{max-width: 400px;
-	
-		
+	#logo{max-width: 400px;}
+	.ui-input-text{
+		max-width: 500px;
+	}
+	.ui-btn{
+		max-width: 500px;
 	}	
 }
 
