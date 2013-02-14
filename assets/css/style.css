@@ -42,6 +42,15 @@ header{padding-top: 10px;}
     MAIN CONTENT
 *************************************************************
 *************************************************************/
+#logo{
+	
+	width:100%;
+	max-width: 400px;
+	
+}
+.center-image{text-align: center;}
+
+
 
 
 /************************************************************
@@ -49,4 +58,30 @@ header{padding-top: 10px;}
     FOOTER
 *************************************************************
 *************************************************************/
+
+
+
+/************************************************************
+*************************************************************
+    Media Querys
+*************************************************************
+*************************************************************/
+/* Media Query: Smartphones (portrait and landscape)  */
+@media only screen 
+and (min-width : 320px) 
+and (max-width : 480px) {
+#logo{max-width: 200px;}
+.ui-input-text{
+	max-width: 320px;
+}
+}
+/* Media Query: iPads (portrait and landscape)  */
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1024px) {
+	#logo{max-width: 400px;
+	
+		
+	}	
+}
 

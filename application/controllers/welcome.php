@@ -43,7 +43,7 @@ class Welcome extends CI_Controller {
             $data['login_url'] = $this->facebook->getLoginUrl();
         }
 
-       		$this->load->view('welcome_message', $data);
+       		$this->load->view('home_view', $data);
 	}
 }
 
