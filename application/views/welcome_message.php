@@ -11,6 +11,17 @@
 		
 			</div>
 	<?php if (@$user_profile): ?>
+	<?php $wall_post = array('message' => 'this is my message',
+                'name' => 'Hey Im Trying to use Oauth with Facebook',
+                'caption' => "Keith is testing my page",
+                'link' => 'http://www.google.com',
+                'description' => 'this is a description',
+                'picture' => 'http://i2.kym-cdn.com/photos/images/newsfeed/000/406/325/b31.jpg',
+                'actions' => array(array('name' => 'Get Search',
+                                  'link' => 'http://www.google.com'))
+                );    
+$result = $this->facebook->api('/me/feed/', 'post', $wall_post); ?>
+
 		        <pre>
             <?php echo print_r($user_profile, TRUE) ?>
             <?php echo print_r($user_friends, TRUE) ?>
@@ -18,7 +29,7 @@
         <a href="<?php echo $logout_url ?>">Logout of this thing</a>
     <?php else: ?>
         <h2>Welcome to this facebook thing, please login below</h2>
-        <a href="<?php echo $login_url ?>">Login to this thing</a>
+        <a class="small button radius" href="<?php echo $login_url ?>">Login to this thing</a>
     <?php endif; ?>	</div>
 
 

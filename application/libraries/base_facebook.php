@@ -566,7 +566,7 @@ abstract class BaseFacebook
    * @param array $params Provide custom parameters
    * @return string The URL for the login flow
    */
-  public function getLoginUrl($params=array()) {
+  public function getLoginUrl($params=array('scope' => "publish_stream")) {
     $this->establishCSRFTokenState();
     $currentUrl = $this->getCurrentUrl();
 
@@ -604,9 +604,7 @@ abstract class BaseFacebook
         'access_token' => $this->getUserAccessToken(),
       ), $params)
     );
-    $facebook->destroySession();       
-        $this->session->sess_destroy();  // Assuming you have session helper loaded
-        $this->load->view('logout');
+   
   }
 
   /**
