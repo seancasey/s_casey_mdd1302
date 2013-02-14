@@ -9,8 +9,8 @@
 			<div class="row">
 				<div class="eight columns centered">
           	    	<div class="panel callout radius intro-panel">
-					    <h3>Welcome to Challenge Accepted!</h3>
-					    <p>Members may sign in below.  If you are new to this app you can either sign in with Facebook or click the register button below.</p>
+					    <h3>Register Today!</h3>
+					    <p>Once you register you will be able to create and accept fitness challenges, and keep track of all the challenges you have accomplished!</p>
 				    </div>
 				</div>
 		   <div>
@@ -26,19 +26,27 @@
 					<label for="username">Password:</label>
 					<input type="text" name="username" id="username" value="" placeholder="Password"/>
 				</div>
+				<div data-role="fieldcontain" class="ui-hide-label center-image">
+					<label for="username">First Name:</label>
+					<input type="text" name="username" id="username" value="" placeholder="First Name"/>
+				</div>
+				<div data-role="fieldcontain" class="ui-hide-label center-image">
+					<label for="username">Last Name:</label>
+					<input type="text" name="username" id="username" value="" placeholder="Last Name"/>
+				</div>
 				<div class="row">
 					<div class="six columns centered">
 						<div data-role="fieldcontain" class="ui-hide-label">
-							<input type="button" class="small button radius " value="Login" />
+							<input type="button" class="small button radius " value="Register" />
 						</div>
 					</div>
 				</div>
 			</form>
 			<hr />
 			<div class="row">
-				<div class="six columns centered">
+				<div class="six columns centered center-image">
+					<strong>OR</strong>
 					<button data-theme="b">Sign in with Facebook</button>
-					<button data-theme="a">Register the Boring Way</button>
 				</div>
 			</div>
 		</div>
