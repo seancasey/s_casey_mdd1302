@@ -48,6 +48,12 @@ header{padding-top: 10px;}
 	max-width: 400px;
 	
 }
+#dash-logo{
+	
+	width:100%;
+	max-width: 200px;
+	
+}
 .center-image{text-align: center;}
 
 .ui-input-text{
