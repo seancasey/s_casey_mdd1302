@@ -22,6 +22,7 @@ class Welcome extends CI_Controller {
             'appId'  => '477386972284105',
             'secret' => 'd8b92ab4cadf582da311298c3dd59387',
         );
+        $this->load->helper(array('form', 'url'));
 
         $this->load->library('facebook', $fb_config);
 
@@ -43,7 +44,7 @@ class Welcome extends CI_Controller {
             $data['login_url'] = $this->facebook->getLoginUrl();
         }
 
-       		$this->load->view('user_dash_view', $data);
+       		$this->load->view('home_view', $data);
 	}
 }
 
