@@ -18,33 +18,10 @@ class Welcome extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{	$fb_config = array(
-            'appId'  => '477386972284105',
-            'secret' => 'd8b92ab4cadf582da311298c3dd59387',
-        );
-        $this->load->helper(array('form', 'url'));
-
-        $this->load->library('facebook', $fb_config);
-
-        $user = $this->facebook->getUser();
-
-        if ($user) {
-            try {
-                $data['user_profile'] = $this->facebook->api('/me');
-                $data['user_friends'] = $this->facebook->api('/me/friends');
-            } catch (FacebookApiException $e) {
-                $user = null;
-            }
-        }
-
-        if ($user) {
-            $data['logout_url'] = $this->facebook->getLogoutUrl();
-            session_destroy();
-        } else {
-            $data['login_url'] = $this->facebook->getLoginUrl();
-        }
-
-       		$this->load->view('home_view', $data);
+	{
+		$this->load->view('template/home_header_view');
+		$this->load->view('welcome_message');
+		$this->load->view('template/home_footer_view');
 	}
 }
 

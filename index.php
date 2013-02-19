@@ -18,23 +18,7 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
-	//define('ENVIRONMENT', 'development');
-
-if (isset($_SERVER['PLATFORM']))
-{
-    switch ($_SERVER['PLATFORM']) {
- 
-        case 'PAGODA':
-            define('ENVIRONMENT', 'testing');
-        break;
-    // add additional cases for more environments
-    }
-}
-else
-{
-    define('ENVIRONMENT', 'development');
-}
-
+	define('ENVIRONMENT', 'development');
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
