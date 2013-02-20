@@ -10,5 +10,12 @@
 		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	</head>
 	<body> 
-		<div data-role="Home">ddddd
+		<div>ddddd
 		
+fadadfadadfadfadfadfadadfad
+
+sfdfddfdfdddqdwqqwdw
+</div>
+<script type="text/javascript" src="<?php echo base_url(); ?>/js/main.js"></script>
+</body>
+</html>

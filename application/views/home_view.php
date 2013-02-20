@@ -1,11 +1,11 @@
-<div data-role="page" id="splash">
-	<div id="splash-video">
-	</div>
-	<ul data-role="listview" data-inset="true" data-filter="true">
-	<li><a href="#">Acura</a></li>
-	<li><a href="#">Audi</a></li>
-	<li><a href="#">BMW</a></li>
-	<li><a href="#">Cadillac</a></li>
-	<li><a href="#">Ferrari</a></li>
-</ul>
-</div>
+
+	
+	<?php echo form_open('verifylogin'); ?>
+		<label for="username" class="ui-hidden-accessible">Username:</label>
+		<input type="text" name="si_email" id="si_email" value="seancasey08@gmail.com" placeholder="Email Address"/>
+		<label for="password" class="ui-hidden-accessible">Username:</label>
+		<input type="password" name="si_pass" id="si_pass" value="skapunk456" placeholder="Password"/>
+		<input type="submit" name="si_submit" id="si_submit" value="Submit" />
+	</form>
+	
+		
