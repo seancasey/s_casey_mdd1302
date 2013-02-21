@@ -1,6 +1,6 @@
 
 	
-	<?php echo form_open('verifylogin'); ?>
+	<?php echo form_open('user'); ?>
 		<label for="username" class="ui-hidden-accessible">Username:</label>
 		<input type="text" name="si_email" id="si_email" value="seancasey08@gmail.com" placeholder="Email Address"/>
 		<label for="password" class="ui-hidden-accessible">Username:</label>
