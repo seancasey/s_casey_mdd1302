@@ -6,26 +6,75 @@ class User extends CI_Controller{
 	  $this->load->model('user_model');
 	   //This method will have the credentials validation
 	   $this->load->library('form_validation');
+	   $this->load->library('session');
 	}
 
  function index()
  {
- 	
- 	if(($this->session->userdata('email')!="")){
- 	   
- 	   $this->load->view('template/home_header_view');
-	   $this->load->view('dashboard');
-	   $this->load->view('template/home_footer_view');
+	 
+ 	//var_dump($this->session->all_userdata());
+
+ 	if(!($this->session->userdata('logged_in'))){
+ 	  	  $this->login();
 	}else{
- 		$this->load->view('template/home_header_view');
-	  	$this->load->view('home_view');
-	  	$this->load->view('template/home_footer_view');
-	
+		var_dump($this->session->userdata('logged_in'));
+		echo 'title';
+	   $this->load->view('dashboard');		
 	}
 
  }
  
+ function register(){
+ 	$this->load->view('registration');
+ }
+ 
  function login(){
+ 	if($this->input->post('form_type')=="register"){
+ 		//Set up form validation for the registration page
+ 		$this->form_validation->set_rules('reg_email', 'Email', 'trim|required|valid_email|is_unique[users.email]');
+	 	$this->form_validation->set_rules('reg_fname', 'First Name', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('reg_lname', 'Last Name', 'trim|required|xss_clean|');
+		$this->form_validation->set_rules('reg_pass', 'Password', 'trim|required|matches[reg_pass_confirm]|min_length[5]|max_length[12]|md5');
+		$this->form_validation->set_rules('reg_pass_confirm', 'Confirm', 'trim|required|xss_clean');
+		
+		//Check to see if the form fields are valid
+		if($this->form_validation->run() == FALSE)
+		{
+			//If field validation fails, send back to the registration page
+	     	$this->load->view('registration');
+
+	    }
+	    else
+	    {
+	    	//If the forms are valid load the user into the db and take them to the dashboard
+	    	 $fname = $this->input->get_post('reg_fname', TRUE);
+		     $lname = $this->input->get_post('reg_lname', TRUE);
+		     $pass = $this->input->get_post('reg_pass', TRUE);
+		     $email = $this->input->get_post('reg_email', TRUE);
+		     
+		     $reg_data = array(
+		     	'fname' => $fname ,
+			   'lname' => $lname,
+			   'email'=> $email,
+			   'password'=>$pass,
+			  );
+			  $this->user_model->register($reg_data);
+			  $uid = $this->db->insert_id();
+			  $sess_array = array(
+			  	'id' => $uid,
+		         'username' => $email,
+		         'fname' => $fname
+		         
+		      );
+		       $this->session->set_userdata('logged_in', $sess_array);
+		       $this->index();
+		       var_dump($uid);
+	    
+	    }
+
+		
+ 	}
+ 	else{
        //Set rules for the login form
  	   $this->form_validation->set_rules('si_email', 'Username', 'trim|required|xss_clean');
 	   $this->form_validation->set_rules('si_pass', 'Password', 'trim|required|xss_clean|callback_check_database');
@@ -33,35 +82,29 @@ class User extends CI_Controller{
 	   if($this->form_validation->run() == FALSE)
 	   {
 	     //Field validation failed. User redirected to login page
-	     $this->load->view('template/home_header_view');
+	     
 	     $this->load->view('home_view');
-	     $this->load->view('template/home_footer_view');
+	    
 	   }
 	   else
 	   {
 	     /* If form validation went through we can a session has been started and we can send
 	        them to the dashboard view.
 	     */
-	     $this->load->view('template/home_header_view');
+	     
 	     $this->load->view('dashboard');
-	     $this->load->view('template/home_footer_view');
+	     
 	     
 	    
-    }
+	   }
+		}
   }
   
   public function logout(){
-      //set everything to blank
-      $newdata = array(
-      'user_id'   =>'',
-      'email'     => '',
-      'logged_in' => FALSE,
-      );
-      //delete the session and send the user back to the register page
-      $this->session->unset_userdata($newdata);
-      $this->session->sess_destroy();
+      $this->session->unset_userdata('logged_in');
+      session_destroy();
       $this->index();
-    }
+   }
 
 
  function check_database($password){
@@ -74,21 +117,19 @@ class User extends CI_Controller{
 
    if($result)
    {
-   
-   	 $sess_array = array();
+   	$sess_array = array();
      foreach($result as $row)
      {
        $sess_array = array(
          'id' => $row->user_id,
-         'username' => $row->email,
-         'fname' => $row->fname
-               
+         'username' => $row->email
        );
-       
+       $this->session->set_userdata('logged_in', $sess_array);
+       var_dump($sess_array);
      }
-     $this->session->set_userdata('logged_in', $sess_array);
-    
      return TRUE;
+
+   
    }
    else
    {

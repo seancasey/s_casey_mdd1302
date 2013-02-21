@@ -328,7 +328,7 @@ $config['compress_output'] = FALSE;
 | regarding date handling.
 |
 */
-$config['time_reference'] = 'America/New_York';
+$config['time_reference'] = 'local';
 
 
 /*

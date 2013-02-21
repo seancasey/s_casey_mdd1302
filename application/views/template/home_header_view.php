@@ -10,5 +10,5 @@
 		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	</head>
 	<body> 
-		<div data-role="Home">ddddd
+		
 		
