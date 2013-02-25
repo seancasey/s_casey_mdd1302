@@ -20,6 +20,17 @@ $('#si_submit').on('click',function(e){
 });
 */
 
+$('.flist_item').on('click',function(e){
+
+	var fid = $(this).attr('friend-id');
+	var fname = $(this).html();
+	$('#nc_friend_id').val(fid);
+	$('#nc_friend_name').val(fname);
+	console.log(fid);
+	e.preventDefault();
+	return false;
+});
+
 
 
 })(jQuery);

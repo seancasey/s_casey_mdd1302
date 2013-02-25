@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond $1 !^(index\.php|images|robots\.txt|css|design|img|js)
+RewriteRule ^(.*)$ /asl_group2/index.php/$1 [L]
+</IfModule>

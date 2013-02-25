@@ -18,6 +18,16 @@
 			</div>
 			<!-- /header -->
 			<?php echo form_open('challenges'); ?>
+				<input type="text" name="nc_friend_name" id="nc_friend_name" disabled="true" value="" placeholder="Who Would you like to challenge?" />
+				<input type="hidden" name="nc_friend_id" id="nc_friend_id" value="" />
+				<ul data-role="listview" data-inset="true" data-filter="true"  data-filter-placeholder="Choose a Friend" class="" data-filter-reveal="true">
+					<li friend-id="1" class="flist_item">Me - Challenge Yourself</li>
+					<li friend-id="2" class="flist_item">Brad Cerny</li>
+					<li friend-id="3" class="flist_item">Keith Caulkins</li>
+					<li friend-id="4" class="flist_item">Angel Diaz</li>
+					<li friend-id="5" class="flist_item">Romaine Simon</li>
+					<li friend-id="6" class="flist_item">Simon Fig-Newton</li>
+				</ul>
 				<input type="hidden" name="form_type" id="form_type" value="new_challenge1"/>
 				<input type="text" name="nc_title" id="nc_title" value="" placeholder="Name of Challenge"/>
 				<textarea name="nc_desc" id="nc_desc" value="" placeholder="Challenge Details"></textarea>
