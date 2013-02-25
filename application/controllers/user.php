@@ -11,11 +11,10 @@ class User extends CI_Controller{
 
  function index()
  {
-	 
- 	//var_dump($this->session->all_userdata());
-
+ 	/*If statement checks if a there is a session.  If there is no session
+ 	run the login function, if there is a session load the dashboard view. */
  	if(!($this->session->userdata('logged_in'))){
- 	  	  $this->login();
+ 	  	$this->login();
 	}else{
 		var_dump($this->session->userdata('logged_in'));
 		echo 'title';
@@ -28,7 +27,12 @@ class User extends CI_Controller{
  	$this->load->view('registration');
  }
  
+ /*The login function will check to see whether the form input is from the login form
+ or the registration form.  It checks the form validations, then depending on the form it will either
+ log the user in, or register the user, then log them in. */
  function login(){
+ 
+ 	/*If the user input comes from the registrtion page*/
  	if($this->input->post('form_type')=="register"){
  		//Set up form validation for the registration page
  		$this->form_validation->set_rules('reg_email', 'Email', 'trim|required|valid_email|is_unique[users.email]');
@@ -74,6 +78,7 @@ class User extends CI_Controller{
 
 		
  	}
+ 	/*If the form data came from the login page*/
  	else{
        //Set rules for the login form
  	   $this->form_validation->set_rules('si_email', 'Username', 'trim|required|xss_clean');
