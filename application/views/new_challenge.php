@@ -17,12 +17,13 @@
 				<a class="logout" href="<?php echo base_url('index.php/user/logout')?>" data-icon="delete" class="ui-btn-right" data-transition="slidefade">Logout</a>
 			</div>
 			<!-- /header -->
-			<div data-role="content">
-				<a href="<?php echo base_url('index.php/challenges/newchallenge')?>" data-role="button" data-icon="star">Create a Challenge</a>
-				<a href="#" data-role="button" data-icon="star">View Challenges</a>
-				<a href="#" data-role="button" data-icon="star">Add Friends</a>
-			</div>
-			<div data-role="footer">
+			<?php echo form_open('challenges'); ?>
+				<input type="hidden" name="form_type" id="form_type" value="new_challenge1"/>
+				<input type="text" name="nc_title" id="nc_title" value="" placeholder="Name of Challenge"/>
+				<textarea name="nc_desc" id="nc_desc" value="" placeholder="Challenge Details"></textarea>
+				<input type="submit" class="" value="Create Challenge" />
+			</form> 
+						<div data-role="footer">
 				Privacy Statement | Challenge Accepted Copyright 2013 | documentation
 			</div>
 	 </div>
