@@ -7,6 +7,7 @@ class User extends CI_Controller{
 	   //This method will have the credentials validation
 	   $this->load->library('form_validation');
 	   $this->load->library('session');
+	   
 	}
 
  function index()
@@ -109,7 +110,10 @@ class User extends CI_Controller{
       $this->session->unset_userdata('logged_in');
       session_destroy();
       $this->index();
+      
    }
+   
+
 
 
  function check_database($password){

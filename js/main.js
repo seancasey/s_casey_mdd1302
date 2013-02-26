@@ -31,6 +31,15 @@ $('.flist_item').on('click',function(e){
 	return false;
 });
 
+$('#newc').trigger('create');
+
+$('html').on('pageinit', '#newc', function(){
+	
+	console.log('test on page init');
+
+	
+});
+$('#newc').trigger('create');
 
 
 })(jQuery);

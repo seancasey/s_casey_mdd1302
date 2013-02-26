@@ -14,7 +14,7 @@
 			<div data-role="header">
 				<h1 id="header">Home</h1>
 
-	
+				<?php echo validation_errors();?>
 				<?php echo form_open('user'); ?>
 					<input type="hidden" name="form_type" id="form_type" value="login"/>
 					<input type="text" name="si_email" id="si_email" value="seancasey08@gmail.com" placeholder="Email Address"/>
