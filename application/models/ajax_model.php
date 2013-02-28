@@ -11,6 +11,18 @@
 	 	$this->db->where('challenge_id', $cid);
 		return json_encode((bool)$this->db->delete('challenges')); 
 	 }
+	 function acc($cid)
+	 { 
+	 	$data = array(
+               'challenge_accepted' => 1
+               
+            );
+
+		$this->db->where('challenge_id', $cid);
+		$this->db->update('challenges', $data); 
+		return $this->db->affected_rows(); 
+	 }
+
 	 
 }
 ?>

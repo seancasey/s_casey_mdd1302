@@ -42,8 +42,34 @@ $('html').on('pageinit', '#newc', function(){
 
 	
 });
+/* Delete a Challenge */
+$('html').on('click', '.accmc', function(e){
+var cid = $(this).attr('data-mc');
+var ccid = $(this).attr('data-uc');
+var oid = $(this).attr('data-opc');
+var coid = $(this).attr('data-cpc');
+$.ajax({
+		url: "/challenge/index.php/challenges/acchallenge",
+		type: "POST",	
+		data:{cid1:cid	
+		},
+		dataType: 'json',
+		success: function(data) {
+			alert('CHALLENGE ACCEPTED!');
+			console.log(data);
+		},
+		error: function(){
+			alert('An error has occured, please try again later');
+		},
+		complete:function(){$('#pending-stuff').listview('refresh');}
+
+});
+});
 $('html').on('click', '.delmc', function(e){
 var cid = $(this).attr('data-mc');
+var ccid = $(this).attr('data-uc');
+var oid = $(this).attr('data-opc');
+var coid = $(this).attr('data-cpc');
 console.log(cid);
 	$.ajax({
 		url: "/challenge/index.php/challenges/delpending",
@@ -54,16 +80,45 @@ console.log(cid);
 		success: function(data) {
 			console.log(data);
 			$('#pending-stuff').listview('refresh');
-			$('.pending-' + cid).hide();
-			var up = parseInt($('.pnum1').html());
-			up = up - 1;
-			$('.pnum1').html(up);
-			$('.pnum').html(up);
+			
+if(ccid == 21){
+				var up1 = parseInt($('.mpnum1').html());
+				$('.mpending-' + cid).hide();
+				up1 = up1 - 1;
+				$('.mpnum1').html(up1);
+				$('.mpnum').html(up1);
+				if(oid == coid){
+					$('.pending-' + cid).hide();
+					var up = parseInt($('.pnum1').html());
+					up = up - 1;
+					$('.pnum1').html(up);
+					$('.pnum').html(up);
+					
+				}
+			}else{
+				$('.pending-' + cid).hide();
+					var up = parseInt($('.pnum1').html());
+					up = up - 1;
+					$('.pnum1').html(up);
+					$('.pnum').html(up);
+					if(oid == coid){
+						var up1 = parseInt($('.mpnum1').html());
+						$('.mpending-' + cid).hide();
+						up1 = up1 - 1;
+						$('.mpnum1').html(up);
+						$('.mpnum').html(up);
+					
+					}
+			}
+			
+
+
 			alert('delete successful!');
 		},
 		error: function(){
 			alert('An error has occured, please try again later');
 		}
+		
 	});
 	
 	e.preventDefault();
@@ -73,6 +128,9 @@ console.log(cid);
 
 
 });
+
+
+
 $('#newc').trigger('create');
 
 

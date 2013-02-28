@@ -41,7 +41,7 @@
 				<input type="submit" class="" value="Create Challenge" />
 			</form> 
 						<div data-role="footer">
-				Privacy Statement | Challenge Accepted Copyright 2013 | documentation
+				<a href="<?php echo base_url('index.php/user/privacy_policy');?>">Privacy Statement</a> | Challenge Accepted Copyright 2013 | documentation
 			</div>
 			</div>
 	 </div>

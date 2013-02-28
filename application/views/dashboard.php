@@ -27,7 +27,7 @@
 				<a href="#" data-role="button" data-icon="star">Add Friends</a>
 			</div>
 			<div data-role="footer">
-				Privacy Statement | Challenge Accepted Copyright 2013 | documentation
+				<a href="<?php echo base_url('index.php/user/privacy_policy');?>">Privacy Statement</a> | Challenge Accepted Copyright 2013 | documentation
 			</div>
 	 </div>
 	 <script type="text/javascript" src="<?php echo base_url(); ?>/js/main.js"></script>

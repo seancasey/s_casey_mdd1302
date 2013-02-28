@@ -60,6 +60,13 @@ class Challenges extends CI_Controller{
  function delpending(){
 	 $delpend = $this->ajax_model->delp($_POST['cid1']);
 	 echo $delpend;
+	 
+ }
+ 
+ function acchallenge(){
+	 $ac = $this->ajax_model->acc($_POST['cid1']);
+	 echo $ac;
+	 
  }
  function mychallenges(){
  		$session_data = $this->session->userdata('logged_in');
@@ -68,9 +75,11 @@ class Challenges extends CI_Controller{
 		'fname'=>$session_data['fname']
 		);
 		$chData = $this->challenge_model->get_all_challenges($userdata['uid']);
-		var_dump($chData);
+		$mchData = $this->challenge_model->get_all_my_challenges($userdata['uid']);
+		var_dump($mchData);
 		$data = array('user'=>$userdata,
-		'uc' =>$chData);
+		'uc' =>$chData,
+		'muc'=>$mchData);
 
 	 	$this->load->view('my_challenges',$data);
  }
