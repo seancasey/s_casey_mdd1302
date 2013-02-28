@@ -131,7 +131,8 @@ class User extends CI_Controller{
      {
        $sess_array = array(
          'id' => $row->user_id,
-         'username' => $row->email
+         'username' => $row->email,
+         'fname'=>$row->fname
        );
        $this->session->set_userdata('logged_in', $sess_array);
        var_dump($sess_array);

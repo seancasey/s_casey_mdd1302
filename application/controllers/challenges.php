@@ -5,6 +5,7 @@ class Challenges extends CI_Controller{
 	  //load the model for the database usage
 	  $this->load->model('user_model');
 	  $this->load->model('challenge_model');
+	   $this->load->model('ajax_model');
 	   //This method will have the credentials validation
 	   $this->load->library('form_validation');
 	   $this->load->library('session');
@@ -34,32 +35,54 @@ class Challenges extends CI_Controller{
 				//If field validation fails, send back to the new challenges page
 				$this->newchallenge();
 
-			}
-			else{
+			}else{
 				$this->create_challenge();		   	
 			}
 	   	
 	   		
-	}
+		}elseif($this->input->post('form_type')=="challenge2"){
+			if(!($this->session->userdata('logged_in'))){
+				$this->login();
+ 	  		}else{
+ 	  			$this->mychallenges();
+			}
+		}
+		else{
+			if(!($this->session->userdata('logged_in'))){
+				$this->login();
+ 	  		}else{
+ 	  			$this->mychallenges();
+			}
+		}
 
+	}
  }
+ function delpending(){
+	 $delpend = $this->ajax_model->delp($_POST['cid1']);
+	 echo $delpend;
  }
- 
+ function mychallenges(){
+ 		$session_data = $this->session->userdata('logged_in');
+		$userdata = array('uid'=>$session_data['id'],
+		'email'=>$session_data['username'],
+		'fname'=>$session_data['fname']
+		);
+		$chData = $this->challenge_model->get_all_challenges($userdata['uid']);
+		var_dump($chData);
+		$data = array('user'=>$userdata,
+		'uc' =>$chData);
+
+	 	$this->load->view('my_challenges',$data);
+ }
+		
+
+
+
  function newchallenge(){
  	if(!($this->session->userdata('logged_in'))){
  	  	$this->login();
 	}else{
-		/*
-$email_config = array('protocol' =>'smtp',
-		'smtp_host'=>'ssl://smtp.gmail.com',
-		'smtp_port'=>'465',
-		'smtp_user'=>'challange.accepted.web',
-		'smtp_password'=>'Challenge2013'
-		);
-		$this->load->library('email',$email_config);
-		$this->email->set_newline("\r\n");
-*/
-
+		
 		
 				//If the forms are valid, then insert into the database
 		$session_data = $this->session->userdata('logged_in');

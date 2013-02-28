@@ -20,7 +20,16 @@ $('#si_submit').on('click',function(e){
 });
 */
 
-$('.flist_item').on('click',function(e){
+
+
+/* $('#newc').trigger('create'); */
+
+$('html').on('pageinit', '#newc', function(){
+	
+	console.log('test on page init');
+	$('#f_list').listview('refresh');
+	
+	$('.flist_item').on('click',function(e){
 
 	var fid = $(this).attr('friend-id');
 	var fname = $(this).html();
@@ -31,15 +40,44 @@ $('.flist_item').on('click',function(e){
 	return false;
 });
 
-$('#newc').trigger('create');
-
-$('html').on('pageinit', '#newc', function(){
-	
-	console.log('test on page init');
-
 	
 });
+$('html').on('click', '.delmc', function(e){
+var cid = $(this).attr('data-mc');
+console.log(cid);
+	$.ajax({
+		url: "/challenge/index.php/challenges/delpending",
+		type: "POST",	
+		data:{cid1:cid	
+		},
+		dataType: 'json',
+		success: function(data) {
+			console.log(data);
+			$('#pending-stuff').listview('refresh');
+			$('.pending-' + cid).hide();
+			var up = parseInt($('.pnum1').html());
+			up = up - 1;
+			$('.pnum1').html(up);
+			$('.pnum').html(up);
+			alert('delete successful!');
+		},
+		error: function(){
+			alert('An error has occured, please try again later');
+		}
+	});
+	
+	e.preventDefault();
+	return false;
+/* }); */
+
+
+
+});
 $('#newc').trigger('create');
+
+
+	
+
 
 
 })(jQuery);

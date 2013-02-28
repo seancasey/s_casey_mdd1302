@@ -18,14 +18,14 @@
 			<div data-role="header" data-theme="d">
 				<h1 id="header">Home</h1>
 				<a class="logout" href="<?php echo base_url('index.php/user')?>" data-icon="delete" class="ui-btn-left" data-transition="slidefade">Home</a>
-				<a class="logout" href="<?php echo base_url('index.php/user/logout')?>" data-icon="delete" class="ui-btn-right" data-transition="slidefade">Logout</a>
+				<a class="logout" href="<?php echo base_url('index.php/user/logout')?>" data-icon="delete"  class="ui-btn-right" data-transition="slidefade">Logout</a>
 			</div>
 			<!-- /header -->
 			<div data-role="content">
 			<?php echo form_open('challenges'); ?>
 				<input type="text" name="nc_friend_name" id="nc_friend_name" disabled="true" value="" placeholder="Who Would you like to challenge?" />
 				<input type="hidden" name="nc_friend_id" id="nc_friend_id" value="" />
-				<ul data-role="listview" data-inset="true" data-filter="true"  data-filter-placeholder="Choose a Friend" class="" data-filter-reveal="true">	
+				<ul id="f_list" data-role="listview" data-inset="true" data-filter="true"  data-filter-placeholder="Choose a Friend" class="" data-filter-reveal="true">	
 					<?php 
 						if(isset($userData)){ ?>
 						<li friend-id="<?php echo $userData['id'];?>" class="flist_item">Me - Challenge Yourself</li>
@@ -34,14 +34,7 @@
 						foreach($friendData as $fc){ ?>
 							<li friend-id="<?php echo $fc->friend_id;?>" class="flist_item"><?php echo $fc->fname .' ' . $fc->fname;?></li>
 					<?php } } ?>
-					<!--
-<li friend-id="2" class="flist_item">Brad Cerny</li>
-					<li friend-id="3" class="flist_item">Keith Caulkins</li>
-					<li friend-id="4" class="flist_item">Angel Diaz</li>
-					<li friend-id="5" class="flist_item">Romaine Simon</li>
-					<li friend-id="6" class="flist_item">Simon Fig-Newton</li>
--->
-				</ul>
+									</ul>
 				<input type="hidden" name="form_type" id="form_type" value="new_challenge1"/>
 				<input type="text" name="nc_title" id="nc_title" value="" placeholder="Name of Challenge"/>
 				<textarea name="nc_desc" id="nc_desc" value="" placeholder="Challenge Details"></textarea>

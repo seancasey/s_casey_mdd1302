@@ -27,12 +27,29 @@ h2 { font-size: 37px; }
 
 h3 { font-size: 27px; }
 
-h4 { font-size: 23px; }
+h4 { font-size: 11px; }
 
 h5 { font-size: 17px; }
 
 h6 { font-size: 14px; }
+.h4_size{font-size:10px;}
+html{
+	background: url(http://subtlepatterns.com/patterns/dark_fish_skin.png) repeat;
+}
 
+#largeHeaderArea{
+	background: #191919;
+	width:50%;
+	margin:0 25%;
+	color:#fff;
+	padding:5%;
+	text-shadow: none;
+	font-weight: normal;
+	text-align: center;
+	
+	
+}
+.wcolor{color:#fff !important;}
 /* Header Style */
 #header{
 	width:100%;
@@ -42,6 +59,11 @@ h6 { font-size: 14px; }
 	min-width: 900em;
 }
 
+#logo{
+	width:30%;
+	margin: 0 35%;
+	min-width: 10em;
+}
 .flist_item{
 	cursor: pointer;
 }
