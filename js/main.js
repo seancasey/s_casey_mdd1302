@@ -42,7 +42,32 @@ $('html').on('pageinit', '#newc', function(){
 
 	
 });
-/* Delete a Challenge */
+
+/* Complete a Challenge */
+$('html').on('click', '.comc', function(e){
+var cid = $(this).attr('data-mc');
+var ccid = $(this).attr('data-uc');
+var oid = $(this).attr('data-opc');
+var coid = $(this).attr('data-cpc');
+	$.ajax({
+			url: "/challenge/index.php/challenges/cchallenge",
+			type: "POST",	
+			data:{cid1:cid	
+			},
+			dataType: 'json',
+			success: function(data) {
+				alert('CHALLENGE ACCEPTED!');
+				console.log(data);
+			},
+			error: function(){
+				alert('An error has occured, please try again later');
+			},
+			complete:function(){window.location='/challenge/index.php/challenges';}
+	
+	});
+});
+//End of Complete Ajax call
+/* Accept a Challenge */
 $('html').on('click', '.accmc', function(e){
 var cid = $(this).attr('data-mc');
 var ccid = $(this).attr('data-uc');
@@ -61,10 +86,13 @@ $.ajax({
 		error: function(){
 			alert('An error has occured, please try again later');
 		},
-		complete:function(){$('#pending-stuff').listview('refresh');}
+		complete:function(){window.location='/challenge/index.php/challenges';}
 
 });
 });
+//End of Accept Ajax call
+
+//Delete Ajax Call
 $('html').on('click', '.delmc', function(e){
 var cid = $(this).attr('data-mc');
 var ccid = $(this).attr('data-uc');
@@ -81,6 +109,7 @@ console.log(cid);
 			console.log(data);
 			$('#pending-stuff').listview('refresh');
 			
+/* This code will reload the lsts after a delete dynamically, just hiding the deleted item until refresh.
 if(ccid == 21){
 				var up1 = parseInt($('.mpnum1').html());
 				$('.mpending-' + cid).hide();
@@ -110,6 +139,7 @@ if(ccid == 21){
 					
 					}
 			}
+*/
 			
 
 
@@ -117,6 +147,10 @@ if(ccid == 21){
 		},
 		error: function(){
 			alert('An error has occured, please try again later');
+		},
+		complete:function(){
+			/* $.mobile.changePage("/challenge/index.php/challenges"); */
+			window.location='/challenge/index.php/challenges';
 		}
 		
 	});
@@ -128,7 +162,7 @@ if(ccid == 21){
 
 
 });
-
+//End of delete Ajax Call
 
 
 $('#newc').trigger('create');

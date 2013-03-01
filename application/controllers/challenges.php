@@ -68,6 +68,13 @@ class Challenges extends CI_Controller{
 	 echo $ac;
 	 
  }
+ 
+  function cchallenge(){
+	 $ac = $this->ajax_model->ccc($_POST['cid1']);
+	 echo $ac;
+	 
+ }
+
  function mychallenges(){
  		$session_data = $this->session->userdata('logged_in');
 		$userdata = array('uid'=>$session_data['id'],

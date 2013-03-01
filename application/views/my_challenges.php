@@ -87,7 +87,13 @@
 							<?php } ?>
 							<!-- <strong>Comments</strong> -->
 						<hr />
-						<a href="#" data-role="button"  class="delmc" data-mini="true" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-mc = "<?php echo $crow->challenge_id;?>">delete</a> </div></li>
+						<a href="#" data-role="button"  class="delmc" data-mini="true" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-mc = "<?php echo $crow->challenge_id;?>">delete</a>
+						<ul data-role="listview" data-inset="true" id="pending-cstuff">
+							<li data-role="list-divider" data-theme="d">Comments</li>
+						</ul> <a href="#pend-popup-<?php echo $crow->challenge_id;?>" data-rel="popup" data-role="button" data-mini="true" data-icon="arrow-r" data-iconpos="right" data-inline="true">Add Comment</a> </div>
+							<div data-role="popup" id="pend-popup-<?php echo $crow->challenge_id;?>">
+								<p>This is a completely basic popup, no options set.<p>
+							</div></li>
 						
 					<?php } } } ?>
 			</div>
@@ -137,7 +143,9 @@
 								Completed
 							<?php } ?>
 							<!-- <strong>Comments</strong> -->
-						</div></li>
+						<ul data-role="listview" data-inset="true" id="pending-cstuff">
+							<li data-role="list-divider" data-theme="d">Comments</li>
+						</ul> </div></li>
 					<?php } } }?>
 			</div>
 <!-- 			End Accepted Challenges -->
@@ -187,7 +195,10 @@
 								Completed
 							<?php } ?>
 							<!-- <strong>Comments</strong> -->
-						</div></li>
+						<ul data-role="listview" data-inset="true" id="pending-cstuff">
+							<li data-role="list-divider" data-theme="d">Comments</li>
+							
+						</ul> </div></li>
 					<?php } } } }else{
 						
 					?>
@@ -314,7 +325,7 @@
 								Completed
 							<?php } ?>
 							<!-- <strong>Comments</strong> -->
-						</div></li>
+							<hr /><a href="#" data-role="button"  class="comc" data-mini="true" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-mc = "<?php echo $crow->challenge_id;?>">Completed</a> </div></li>
 					<?php } } }?>
 			</div>
 <!-- 			End Accepted Challenges -->

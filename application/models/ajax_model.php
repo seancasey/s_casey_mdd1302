@@ -22,6 +22,17 @@
 		$this->db->update('challenges', $data); 
 		return $this->db->affected_rows(); 
 	 }
+	 function ccc($cid)
+	 { 
+	 	$data = array(
+               'challenge_accepted' => 2
+               
+            );
+
+		$this->db->where('challenge_id', $cid);
+		$this->db->update('challenges', $data); 
+		return $this->db->affected_rows(); 
+	 }
 
 	 
 }
