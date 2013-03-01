@@ -1,90 +1,240 @@
-/* Requires: normalize.css -box-sizing.htc */
-/* Global Reset & Standards ---------------------- */
-* { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
-
-html { font-size: 62.5%; }
-
-body { background: white; font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 14px; font-size: 1.4rem; line-height: 1; color: #222222; position: relative; -webkit-font-smoothing: antialiased; }
-
-/* Links ---------------------- */
-a { color: #2ba6cb; text-decoration: none; line-height: inherit; }
-
-a:hover { color: #2795b6; }
-
-a:focus { color: #2ba6cb; outline: none; }
-
-p a, p a:visited { line-height: inherit; }
-
-/* Base Type Styles Using Modular Scale ---------------------- */
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, p, blockquote, th, td { margin: 0; padding: 0; font-size: 14px; }
-
-h1, h2, h3, h4, h5, h6 { text-rendering: optimizeLegibility; line-height: 1.1; margin-bottom: 14px; margin-top: 14px; }
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { font-size: 60%; color: #888; line-height: 0; }
-
-h1 { font-size: 44px; }
-
-h2 { font-size: 37px; }
-
-h3 { font-size: 27px; }
-
-h4 { font-size: 11px; }
-
-h5 { font-size: 17px; }
-
-h6 { font-size: 14px; }
-.h4_size{font-size:10px;}
+/* Structure */
 html{
-	background: url(http://subtlepatterns.com/patterns/dark_fish_skin.png) repeat;
+	background: #eee;
+}
+body {
+  padding: 0px;
+  background: #fff;
+  color: #333;
+  margin: 0 auto;
+  max-width: 900px;
+  font: 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+a {
+  color: #105672;
 }
 
-#largeHeaderArea{
-	background: #191919;
-	width:50%;
-	margin:0 25%;
-	color:#fff;
-	padding:5%;
+header {
+	background: #f05023;
+	padding: .5em 3em;
+	color: #fcd4ad;
+	line-height: 1;
+	text-shadow: none !important;
+}
+
+header h1{
+	margin-bottom: 0;
+}
+
+header h1 span{
+	display: inline;
+	color: #191919;
+}
+
+header span{
+	display: block;
+	color: rgba(255,255,255,.2);
+	font-weight: 300;
+	margin-bottom: 1.6em
+}
+
+header nav{
+	float: right;
+	text-align: right
+}
+header nav div{
+	font-size: .8em;
+}
+header nav div a {
+	font-weight: 300;
+	padding: .3em .5em
+}
+header nav a{
+	color: #fff;
+	display: inline-block;
+	padding: .3em .8em
+}
+
+header nav a:hover, header nav a:focus{
+	color: rgba(255,255,255,.6)
+}
+header nav #small-nav{
+	display:none;
+}
+
+
+[role=main]{
+	padding:1.5em 3em;
+}
+article{
+	padding: 1em 0;
+}
+#main-content{
+	background: url('../images/pw_maze_white.png') repeat !important;
+}
+footer{
+	background: #333;
+	color: #fff;
+	padding: .1em 3em;
+}
+
+/* Typography */
+
+p{
+	font: 1em/1.5 Palatino, "Palatino Linotype", Georgia, Times, "Times New Roman", serif;
+}
+
+
+img{
+	max-width: 100%;
+	height: auto;
+}
+
+
+blockquote{
+	float: left;
+	margin: 1em 3em;
+}
+blockquote p{
+	font-size: 1.4em;
+	line-height: 1.2;
+	font-weight: 700;
+	font-style:italic;
+}
+a{
+	font: 700 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-decoration: none
+}
+a:hover, a:focus{
+	color: #000;
+}
+a:active{
+	position: relative;
+	top:1px;
+}
+
+/* Tabs */
+
+.js-on #tabs article
+{
+	display:none
+}
+
+#tabs, #tabs nav a.active{
+	background: #ddd;
+	color: #111;
+}
+
+#tabs nav
+{
+	position: relative;
+	overflow: hidden;
+	display: table;
+	background: #bbb;
+}
+
+
+
+#tabs nav a
+{
+	width:150px;
+	display:table-cell;
+	padding:1em;
+	text-align:center;
+	color: #333;
+}
+
+#tabs nav a:hover,#tabs nav a:focus
+{
+	background:#eee
+}
+
+#tabs article
+{
+	padding:2em;
+}
+
+.js-on #tabs article.active
+{
+	display:block;
+}
+#tabs #mobiles{
+	display:none;
+	border-radius: 0;
+}
+#tabs #mobiles a, #tabs #mobiles a:first-child, #tabs #mobiles a:last-child{
+	width:300px;
+	border-radius: 0;
+}
+.errors{
+	background-color:#ff0000;
 	text-shadow: none;
-	font-weight: normal;
-	text-align: center;
-	
-	
+	color:#ffffff;
 }
-.wcolor{color:#fff !important;}
-/* Header Style */
-#header{
-	width:100%;
-	min-height:2em;
-	background-color:#191919;
-	margin:0 auto;
-	min-width: 900em;
+.errors div{
+	margin:1em;
+}
+.btn-txt{
+	text-shadow: none;
+	color:#fff;
 }
 
-#logo{
-	width:30%;
-	margin: 0 35%;
-	min-width: 10em;
-}
-.flist_item{
-	cursor: pointer;
+
+/* Media queries */ 
+@media screen and (min-width:900px)
+{
+	body{font-size: 1.1em;}
 }
 
-/*End Header Style */
+@media screen and (max-width:600px)
+{
+	#tabs nav{
+			display: none;
+			position: relative;
+		}
+		#tabs #mobiles{
+		display:block;
+		}
+		#tabs article {
+		display:block;
+		}
+}
+@media screen and (max-width:680px)
+{
+	blockquote{
+	float: none;
+	}
 
-/************************************************************
-*************************************************************
-    Media Querys
-*************************************************************
-*************************************************************/
-/* Media Query: Smartphones (portrait and landscape)  */
-@media only screen 
-and (min-width : 320px) 
-and (max-width : 680px) {
+	header nav a{
+		padding:.7em .8em
+	}
+	header nav{
+		float: none;
+		margin: -.5em -3em 0;
+		background: #000;
+		overflow: hidden;
+		text-align: left;
+	}
 	
-	
+	header nav a{
+		border-right: 1px solid #222
+	}
+	[role=main]{
+	padding:1.5em 2em;
+	}
+	header nav div{
+	display: none;
+	}
+	header nav #small-nav{
+		display:block;
+		font-size:1.2em;
+		color:#f05023;
+	}
+	header nav #small-nav a{
+		color:#f05023;
+		cursor: pointer;
+	}
+
 }
-/* Media Query: iPads (portrait and landscape)  */
-@media only screen 
-and (min-width : 768px) 
-and (max-width : 1024px) {
-	
-}
+

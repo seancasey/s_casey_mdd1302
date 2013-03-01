@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/challenge';
+$config['base_url']	= 'http://localhost/s_casey_mdd1302';
 
 /*
 |--------------------------------------------------------------------------
