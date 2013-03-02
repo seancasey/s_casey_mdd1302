@@ -46,6 +46,8 @@ class Challenges extends CI_Controller{
  	  		}else{
  	  			$this->mychallenges();
 			}
+		}elseif($this->input->post('form_type')=="add_comment2"){
+			$this-> add_comment2();
 		}
 		else{
 			if(!($this->session->userdata('logged_in'))){
@@ -74,6 +76,41 @@ class Challenges extends CI_Controller{
 	 echo $ac;
 	 
  }
+ 
+ function add_comment(){
+ 	$this->form_validation->set_rules('nc_desc', 'Description', 'trim|required|xss_clean|');
+	   		
+	   		
+			 	$ccid = $this->input->post('cid');
+			 	$chData = $this->challenge_model->get_one_challenge($ccid);
+				$session_data = $this->session->userdata('logged_in');
+				$uid = $session_data['id'];
+				
+				$data = array('user'=>$uid,
+				'uc' =>$chData);	
+				var_dump($data);
+
+
+				$this->load->view('add_comment',$data);
+			
+	 
+ }
+ function add_comment2(){
+ 	$this->form_validation->set_rules('nc_desc', 'Comment Field', 'trim|required|xss_clean|');
+	   		
+	   		//Check the form values
+	   		if($this->form_validation->run() == FALSE)
+	   		{
+	   			$this->mychallenges();
+	   		}else{
+			 	
+
+				
+				$this->mychallenges();
+			}
+	 
+ }
+
 
  function mychallenges(){
  		$session_data = $this->session->userdata('logged_in');

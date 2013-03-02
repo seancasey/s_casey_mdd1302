@@ -11,7 +11,7 @@
 		<!-- <link rel="stylesheet" href="<?php echo base_url(); ?>/css/jquery_mobile/theme_d.css" /> -->
 	</head>
 	<body> 
-		<div data-role="page" id="home">
+		<div data-role="page" id="my_challenges">
 		<!--Start Header-->
 			<div data-role="header">				
 				<header>
@@ -58,6 +58,7 @@
 					}} 	
 					
 				?>
+				<div class="errors"><div><?php echo validation_errors();?></div></div>
 				<h2>Challenges you have created</h2><hr />
 					<!-- Pending Challenges -->
 					
@@ -106,10 +107,14 @@
 						<a href="#" data-role="button"  class="delmc" data-mini="true" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-mc = "<?php echo $crow->challenge_id;?>">delete</a>
 						<ul data-role="listview" data-inset="true" id="pending-cstuff">
 							<li data-role="list-divider" data-theme="d">Comments</li>
-						</ul> <a href="#pend-popup-<?php echo $crow->challenge_id;?>" data-rel="popup" data-role="button" data-mini="true" data-icon="arrow-r" data-iconpos="right" data-inline="true">Add Comment</a> </div>
-							<div data-role="popup" id="pend-popup-<?php echo $crow->challenge_id;?>">
-								<p>This is a completely basic popup, no options set.<p>
-							</div></li>
+						</ul> 
+						<?php echo form_open('challenges/add_comment');?>
+							<input type="hidden" name="cid" id="cid" value="<?php echo $crow->challenge_id;?>"/>
+							<input data-mini="true" data-icon="arrow-r" data-iconpos="right" data-inline="true"  type="submit" class="" value="Add a Comment" />
+						</form>
+							
+						 </div>
+							</li>
 						
 					<?php } } } ?>
 			</div>
