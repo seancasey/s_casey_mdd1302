@@ -44,7 +44,7 @@
 						if(isset($userData)){ ?>
 						<li friend-id="<?php echo $userData['id'];?>" class="flist_item">Me - Challenge Yourself</li>
 					<?php } ?>
-					<?php if(isset($friendData)){
+					<?php if($friendData){
 						foreach($friendData as $fc){ ?>
 							<li friend-id="<?php echo $fc->friend_id;?>" class="flist_item"><?php echo $fc->fname .' ' . $fc->lname;?></li>
 					<?php } } ?>

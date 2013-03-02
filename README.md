@@ -1,12 +1,38 @@
 Author:Sean Casey
 Updated:3/2/2013
 
-Welcome to Challenge Accepted!
+Challenge Accepted
 
-This is a simple web app that was built so friends could create challenges for eachother.
 
-ASSETS
-------------------
-All of the assets can be located in the mdd_assets folder including sql dumps.
+RecipeBook is an application that allows you to store your favorite cooking recipes in order and keep them organized.
 
-the file structure is code igniter and can be unzipped right into a public folder, just take out the assets if you want to save space.
+Keep track of all recipes stored by the user
+Keep all recipes organized in a clean way for further references.
+https://www.pivotaltracker.com/projects/750583
+
+----------------------------------------------------------
+
+Installing
+Create a database name 'challenge'.
+
+Navigate to 'SQL' folder and import 'test_data.sql'.
+
+The applicaiton is already rooted so just download the zip file.
+
+Create a folder in your MAMP and unzip it in there.
+
+Go to application/config/config.php and be sure to update the $config['base_url']	to your correct path.
+
+
+Start MAMP
+---------------------------------------------------------------
+
+Testing
+Navigating to 'localhost:XXXX/[your folder name' will present you with a log in screen and registration.
+
+To test you can register, and it will automatically sign you in.  All the friends are turned on right now.
+
+Live site:
+Live site http://sean.keithcaulkins.com
+
+

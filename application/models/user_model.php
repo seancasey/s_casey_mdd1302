@@ -48,9 +48,7 @@
 	 function retrieve_friends($id){
 		 $this -> db -> select('*');
 		 $this -> db -> from('users as u');
-		 $this -> db -> JOIN('relations as r', 'r.friend_id = u.user_id');
-		 $this -> db -> where('r.user_id = ' . "'" . $id . "'");
-		 $query = $this -> db -> get();
+		 		 $query = $this -> db -> get();
 
 		 if($query -> num_rows() > 0){
 	     	return $query->result();
