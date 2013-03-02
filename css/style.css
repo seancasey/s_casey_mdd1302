@@ -179,6 +179,7 @@ a:active{
 	text-shadow: none;
 	color:#fff;
 }
+.flist_item{cursor: pointer;}
 
 
 /* Media queries */ 

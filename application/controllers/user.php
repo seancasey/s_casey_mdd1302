@@ -22,6 +22,9 @@ class User extends CI_Controller{
 	}
 
  }
+ function about(){
+	  $this->load->view('about');
+ }
  function privacy_policy(){
 	 $this->load->view('privacy_policy');
  }

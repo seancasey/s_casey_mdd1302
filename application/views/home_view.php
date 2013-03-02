@@ -18,12 +18,12 @@
 			        <nav>
 			            <div id="nav-btn"  data-role="controlgroup" data-type="horizontal" data-mini="true">
 						    <a href="<?php echo base_url('index.php');?>" data-role="button" data-icon="home" data-theme="a"><span class="btn-txt">HOME</span></a>
-						    <a href="#" data-role="button" data-icon="info" data-theme="a"><span class="btn-txt">ABOUT</span></a>
+						    <a href="<?php echo base_url('index.php/user/about');?>" data-role="button" data-icon="info" data-theme="a"><span class="btn-txt">ABOUT</span></a>
 						    <a href="<?php echo base_url('index.php/user/register');?>" data-role="button" data-icon="gear" data-theme="a" data-transition="flip"><span class="btn-txt">REGISTER</span></a>
 						</div>			            
 						<div id="small-nav">
 							<a href="<?php echo base_url('index.php/user');?>">HOME</a>
-							<a href="#">ABOUT</a>
+							<a href="<?php echo base_url('index.php/user/about');?>">ABOUT</a>
 							<a href="<?php echo base_url('index.php/user/register');?>" data-transition="flip">REGISTER</a>
 						</div>
 			
