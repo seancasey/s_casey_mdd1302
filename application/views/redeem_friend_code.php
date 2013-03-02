@@ -35,13 +35,13 @@
 			</div>
 			
 			<div data-role="content" id="main-content">
-				<h1>Add A Friend!</h1>
+				<h1>Redeem Friend Code</h1>
 				<div class="errors"><div><?php echo validation_errors();?></div></div>
-				<p>To add a new friend, simply write their email address in the input box below and press the add friend button.  Once they have approved your friendship you will be notified, their name will be added to your list, and you can start challenging them!</p><hr />
-				<?php echo form_open('challenges'); ?>
-				<input type="hidden" name="form_type" id="form_type" value="newf"/>
-				<input type="text" name="femail" id="femail" value="" placeholder="Enter Email Here..."></textarea>
-				<input type="submit" class="" value="Send Request" />
+				<p>If the friend code is not already populated, cut and paste it from the email you have received and click the redeem button.</p><hr />
+				<?php echo form_open('user'); ?>
+				<input type="hidden" name="form_type" id="form_type" value="redeem"/>
+				<input type="text" name="remail" id="remail" value="<?php echo $code;?>" placeholder="Enter code here"></textarea>
+				<input type="submit" class="" value="Redeem Friend" />
 				
 			</div>
 			<div data-role="footer">

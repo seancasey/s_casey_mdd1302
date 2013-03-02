@@ -26,6 +26,19 @@
 	   }
 	 }
 	 
+	 function updatefriends($code){
+	 	$session_data = $this->session->userdata('logged_in');
+		$uid = $session_data['id'];
+		 $data = array(
+               'confirmed' => 1,
+               'fid' => $uid
+               
+            );
+
+		$this->db->where('link_code', $code);
+		$this->db->update('friend_list', $data); 
+		return $this->db->affected_rows(); 
+	 }
 	 function register($data)
 	 {
 		 $this->db->insert('users', $data); 

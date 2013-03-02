@@ -37,6 +37,9 @@
 		 
 		 
 	 }
+	 function addfriend($cid,$email){
+		 
+	 }
 	 
 	 function get_all_challenges($id){
 	   $this -> db -> select('c.challenge_id, c.challenge_desc, c.challenge_name, c.challenge_accepted, c.challenge_completed,c.created_date,c.completed_date,c.opponent_id, o.fname as cofname,o.lname colname,o.email');
@@ -55,6 +58,7 @@
 
 	 }
 	 
+	 
 	 function get_all_challenges1($id){
 	   $query = $this -> db -> query('Select c.challenge_id, c.challenge_desc, c.challenge_name, c.challenge_accepted, c.challenge_completed,cc.fname,cc.lname,c.challenger_id, c.created_date,c.completed_date,c.opponent_id, o.fname as cofname,o.lname colname,o.email FROM challenges as c
 Join users as o On o.user_id = c.opponent_id Join users as cc on cc.user_id = c.challenger_id WHERE challenger_id = ' . $id . ' OR opponent_id = '. $id);
@@ -69,6 +73,48 @@ Join users as o On o.user_id = c.opponent_id Join users as cc on cc.user_id = c.
 	   }
 
 	 }
+	 
+	 function add_friend_model($data,$uid)
+	 {
+		 $this->db->insert('friend_list', $data); 
+		 $this -> db -> select('fname,lname');
+		 $this -> db -> from('users');
+	   $this -> db -> where('user_id = ' . "'" . $uid . "'");
+
+	   $this -> db -> limit(1);
+	
+	   $query = $this -> db -> get();
+	
+	   if($query -> num_rows() == 1)
+	   {
+	     return $query->result();
+	   }
+	   else
+	   {
+	     return false;
+	   }
+	 }
+
+	 
+	 
+	 function check_email($email){
+	   $this -> db -> select('*');
+	   $this -> db -> from('users');
+	   $this -> db -> where('email = ' . "'" . $email . "'");
+	   $this -> db -> limit(1);
+	
+	   $query = $this -> db -> get();
+	
+	   if($query -> num_rows() == 1)
+	   {
+	     return true;
+	   }
+	   else
+	   {
+	     return false;
+	   }
+	 }
+
 
 	 function get_one_challenge($id){
 	 	$this -> db -> select('c.opponent_id,c.`challenge_id`,c.opponent_id,c.challenge_name,c.challenge_desc,u.email, u.fname,u.lname, i.fname as cfname,i.lname as clname');

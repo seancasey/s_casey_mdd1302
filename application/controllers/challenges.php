@@ -49,8 +49,9 @@ class Challenges extends CI_Controller{
 		}elseif($this->input->post('form_type')=="add_comment2"){
 			$this-> add_comment2();
 		}elseif($this->input->post('form_type')=="newf"){
-			$this->load->view('friend_approval');
+			$this->add_friends1();
 		}
+		
 		else{
 			if(!($this->session->userdata('logged_in'))){
 				$this->login();
@@ -68,8 +69,55 @@ class Challenges extends CI_Controller{
  }
  
  function add_friends(){
-	 $this->load->view('add_friends');
+ 	$this->load->view('add_friends');
  }
+ function add_friends1(){
+ 	$this->form_validation->set_rules('femail', 'Email Field', 'trim|valid_email|required|xss_clean|');
+	   		
+	//Check the form values
+	if($this->form_validation->run() == FALSE)
+	{
+		$this->add_friends();
+	}else{
+		//create a unique string for a link
+		$link = md5(uniqid());
+		$email = $this->input->post('femail');
+		$session_data = $this->session->userdata('logged_in');
+	   	$user = $session_data['id'];
+	   	
+	   	$data = array('uid'=>$user,
+	   	'email'=>$email,
+	   	'link_code'=>$link,
+	   	'fid'=>$user,
+	   	'confirmed'=>0);
+	   	
+	   	$fee = $this->challenge_model->add_friend_model($data,$user);
+	   	var_dump($fee[0]);
+	   	$check = $this->challenge_model->check_email($email);
+	   	$this->load->view('friend_approval');
+	   	//Send an email to the Email entered in the field.
+		 $this->email->from('challange.accepted.web@gmail.com');
+		 $this->email->to($email);
+		 if($check==false){
+			 $this->email->subject('Your Friends is Using Challenge Accepted!');
+			 $this->email->message($fee[0]->fname . ' ' . $fee[0]->lname .  ' has sent you a friend request on Challenge Accepted.  First you need to go to http://sean.keithcaulkins.com to sign up.  Once you are signed up, go to http://sean.keithcaulkins.com/index.php/user/redeemfriend?rcode=' . $link . ' to redeem your friendship code to become friends with ' . $fee[0]->fname . ' ' . $fee[0]->lname . '. Your code is: ' . $linkHave . ' a great Day');
+		 $this->email->send();
+		 }else{
+		 	 $this->email->subject('Challenge Accepted Friend Request!');
+			 $this->email->message($fee[0]->fname . ' ' . $fee[0]->lname .  ' has sent you a friend request, login and go to http://sean.keithcaulkins.com/index.php/user/redeemfriend?rcode=' . $link . ' to redeem your friendship code to become friends with ' . $fee[0]->fname . ' ' . $fee[0]->lname . '. Your code is: ' . $linkHave . ' a great Day');
+			 $this->email->send();
+			 
+		 }
+		 
+
+	   		 		
+		
+	}
+
+
+	
+ }
+
  
  function acchallenge(){
 	 $ac = $this->ajax_model->acc($_POST['cid1']);
@@ -94,7 +142,7 @@ class Challenges extends CI_Controller{
 				
 				$data = array('user'=>$uid,
 				'uc' =>$chData);	
-				var_dump($data);
+				
 
 
 				$this->load->view('add_comment',$data);

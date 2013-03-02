@@ -76,11 +76,15 @@ class User extends CI_Controller{
 		      );
 		       $this->session->set_userdata('logged_in', $sess_array);
 		       $this->index();
-		       var_dump($uid);
-	    
+		       
 	    }
 
 		
+ 	}elseif($this->input->post('form_type')=="redeem"){
+ 		$code = $this->input->post('remail');
+ 		$this->user_model->updatefriends($code);
+ 		
+ 		$this->redeemfriend1();
  	}
  	/*If the form data came from the login page*/
  	else{
@@ -120,6 +124,20 @@ class User extends CI_Controller{
 	  }
 
             
+   }
+   
+   public function redeemfriend(){
+   if($this->input->get('rcode')){
+   $rc = $this->input->get('rcode');
+   $r = array('code'=>$rc);
+   
+	   $this->load->view('redeem_friend_code',$r);
+   }else
+	   $this->load->view('redeem_friend_code');
+   }
+   
+   public function redeemfriend1(){
+	   
    }
    
 

@@ -50,7 +50,7 @@ var ccid = $(this).attr('data-uc');
 var oid = $(this).attr('data-opc');
 var coid = $(this).attr('data-cpc');
 	$.ajax({
-			url: "/challenge/index.php/challenges/cchallenge",
+			url: "/index.php/challenges/cchallenge",
 			type: "POST",	
 			data:{cid1:cid	
 			},
@@ -62,37 +62,37 @@ var coid = $(this).attr('data-cpc');
 			error: function(){
 				alert('An error has occured, please try again later');
 			},
-			complete:function(){window.location='/challenge/index.php/challenges';}
+			complete:function(){window.location='/index.php/challenges';}
 	
 	});
 });
 //End of Complete Ajax call
 
-/* Complete a Challenge */
-$('html').on('click', '.comc', function(e){
+
+/* Accept a Challenge */
+$('html').on('click', '.accmc', function(e){
 var cid = $(this).attr('data-mc');
 var ccid = $(this).attr('data-uc');
 var oid = $(this).attr('data-opc');
 var coid = $(this).attr('data-cpc');
-	$.ajax({
-			url: "/challenge/index.php/challenges/cchallenge",
-			type: "POST",	
-			data:{cid1:cid	
-			},
-			dataType: 'json',
-			success: function(data) {
-				alert('CHALLENGE ACCEPTED!');
-				
-			},
-			error: function(){
-				alert('An error has occured, please try again later');
-			},
-			complete:function(){window.location='/challenge/index.php/challenges';}
-	
-	});
-});
-//End of Complete Ajax call
+$.ajax({
+		url: "/index.php/challenges/acchallenge",
+		type: "POST",	
+		data:{cid1:cid	
+		},
+		dataType: 'json',
+		success: function(data) {
+			alert('CHALLENGE ACCEPTED!');
+			console.log(data);
+		},
+		error: function(){
+			alert('An error has occured, please try again later');
+		},
+		complete:function(){window.location='/index.php/challenges';}
 
+});
+});
+//End of Accept Ajax call
 
 //Delete Ajax Call
 $('html').on('click', '.delmc', function(e){
@@ -102,7 +102,7 @@ var oid = $(this).attr('data-opc');
 var coid = $(this).attr('data-cpc');
 console.log(cid);
 	$.ajax({
-		url: "/challenge/index.php/challenges/delpending",
+		url: "/index.php/challenges/delpending",
 		type: "POST",	
 		data:{cid1:cid	
 		},
@@ -152,7 +152,7 @@ if(ccid == 21){
 		},
 		complete:function(){
 			/* $.mobile.changePage("/challenge/index.php/challenges"); */
-			window.location='/challenge/index.php/challenges';
+			window.location='/index.php/challenges';
 		}
 		
 	});
