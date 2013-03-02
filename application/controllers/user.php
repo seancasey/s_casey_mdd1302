@@ -16,10 +16,9 @@ class User extends CI_Controller{
  	run the login function, if there is a session load the dashboard view. */
  	if(!($this->session->userdata('logged_in'))){
  	  	$this->login();
+ 	  	//redirect('home','location');
 	}else{
-		var_dump($this->session->userdata('logged_in'));
-		echo 'title';
-	   $this->load->view('dashboard');		
+	  $this->load->view('dashboard');		
 	}
 
  }
@@ -50,8 +49,7 @@ class User extends CI_Controller{
 			//If field validation fails, send back to the registration page
 	     	$this->load->view('registration');
 
-	    }
-	    else
+	    }else
 	    {
 	    	//If the forms are valid load the user into the db and take them to the dashboard
 	    	 $fname = $this->input->get_post('reg_fname', TRUE);
@@ -109,10 +107,16 @@ class User extends CI_Controller{
   }
   
   public function logout(){
-      $this->session->unset_userdata('logged_in');
-      session_destroy();
-      $this->index();
-      
+  	  if(!($this->session->userdata('logged_in'))){
+ 	  	$this->login();
+ 	  }else{
+		$this->session->unset_userdata('logged_in');
+		session_destroy();
+		$this->login();
+	
+	  }
+
+            
    }
    
 
