@@ -45,8 +45,8 @@
 				<div class="errors"><div><?php echo validation_errors();?></div></div>
 				<?php echo form_open('user'); ?>
 					<input type="hidden" name="form_type" id="form_type" value="login"/>
-					<input type="text" name="si_email" id="si_email" value="seancasey08@gmail.com" placeholder="Email Address"/>
-					<input type="password" name="si_pass" id="si_pass" value="skapunk456" placeholder="Password"/>
+					<input type="text" name="si_email" id="si_email" value="" placeholder="Email Address"/>
+					<input type="password" name="si_pass" id="si_pass" value="" placeholder="Password"/>
 					<input type="submit" class="" value="Sign in" />
 				</form>
 				
