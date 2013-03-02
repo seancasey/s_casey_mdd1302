@@ -40,7 +40,8 @@
 					<p>
 						Orlando, FL 32811<br />
 						555-555-5555<br />
-						challange.accepted.web@gmail.com
+						challange.accepted.web@gmail.com<br />
+						<a href="<?php echo base_url('index.php/user/privacy_policy');?>">Privacy Policy</a>
 					</p>
 				<h2>Documentation</h2>
 				<h3>Registering/Login</h3>
@@ -56,7 +57,7 @@
 				<p>If you find that one of your friends is misusing the site, please email us at challange.accepted.web@gmail.com.  We take pride in our customer base and want to make sure that you have a positive experience while using the applicaiton. </p>
 			</div>
 			<div data-role="footer">
-				<a href="<?php echo base_url('index.php/user/privacy_policy');?>">Privacy Statement</a> | Challenge Accepted Copyright 2013 | documentation
+				Challenge Accepted &copy; 2013
 			</div>
 			 </div>
 	 <script type="text/javascript" src="<?php echo base_url(); ?>/js/main.js"></script>

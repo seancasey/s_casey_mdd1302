@@ -17,14 +17,18 @@ a {
 
 header {
 	background: #f05023;
-	padding: .5em 3em;
+	padding: .5em 1em;
 	color: #fcd4ad;
 	line-height: 1;
 	text-shadow: none !important;
 }
 
+header nav{
+	padding: 0 2em;
+}
+
 header h1{
-	margin-bottom: 0;
+    	margin-bottom: 0;
 }
 
 header h1 span{
@@ -180,6 +184,13 @@ a:active{
 	color:#fff;
 }
 .flist_item{cursor: pointer;}
+
+.myuser{
+	background: #f05023;
+	text-shadow: none;
+	color:#191919;
+	padding:.3em;
+}
 
 
 /* Media queries */ 

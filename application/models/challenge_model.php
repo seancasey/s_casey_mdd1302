@@ -54,6 +54,22 @@
 	   }
 
 	 }
+	 
+	 function get_all_challenges1($id){
+	   $query = $this -> db -> query('Select c.challenge_id, c.challenge_desc, c.challenge_name, c.challenge_accepted, c.challenge_completed,cc.fname,cc.lname,c.challenger_id, c.created_date,c.completed_date,c.opponent_id, o.fname as cofname,o.lname colname,o.email FROM challenges as c
+Join users as o On o.user_id = c.opponent_id Join users as cc on cc.user_id = c.challenger_id WHERE challenger_id = ' . $id . ' OR opponent_id = '. $id);
+	  
+	   if($query -> num_rows() < 1)
+	   {
+	     return false;
+	   }
+	   else
+	   {
+	     return $query->result();
+	   }
+
+	 }
+
 	 function get_one_challenge($id){
 	 	$this -> db -> select('c.opponent_id,c.`challenge_id`,c.opponent_id,c.challenge_name,c.challenge_desc,u.email, u.fname,u.lname, i.fname as cfname,i.lname as clname');
 	 	$this -> db -> from('challenges as c');

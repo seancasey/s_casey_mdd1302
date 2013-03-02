@@ -20,3 +20,11 @@
 			<!-- /header -->
 			<div data-role="content">
 			</div>
+			<div data-role="footer">
+				Challenge Accepted &copy; 2013
+			</div>
+			 </div>
+	 <script type="text/javascript" src="<?php echo base_url(); ?>/js/main.js"></script>
+   </body>
+</html>
+

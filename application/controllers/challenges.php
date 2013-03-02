@@ -48,6 +48,8 @@ class Challenges extends CI_Controller{
 			}
 		}elseif($this->input->post('form_type')=="add_comment2"){
 			$this-> add_comment2();
+		}elseif($this->input->post('form_type')=="newf"){
+			$this->load->view('friend_approval');
 		}
 		else{
 			if(!($this->session->userdata('logged_in'))){
@@ -63,6 +65,10 @@ class Challenges extends CI_Controller{
 	 $delpend = $this->ajax_model->delp($_POST['cid1']);
 	 echo $delpend;
 	 
+ }
+ 
+ function add_friends(){
+	 $this->load->view('add_friends');
  }
  
  function acchallenge(){
@@ -118,12 +124,14 @@ class Challenges extends CI_Controller{
 		'email'=>$session_data['username'],
 		'fname'=>$session_data['fname']
 		);
+		$uid = $session_data['id'];
+		$chData1 = $this->challenge_model->get_all_challenges1($userdata['uid']);
 		$chData = $this->challenge_model->get_all_challenges($userdata['uid']);
 		$mchData = $this->challenge_model->get_all_my_challenges($userdata['uid']);
-		var_dump($mchData);
 		$data = array('user'=>$userdata,
 		'uc' =>$chData,
-		'muc'=>$mchData);
+		'muc2'=>$chData1,
+		'user' => $uid);
 
 	 	$this->load->view('my_challenges',$data);
  }

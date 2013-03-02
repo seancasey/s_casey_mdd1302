@@ -11,7 +11,7 @@
 		<!-- <link rel="stylesheet" href="<?php echo base_url(); ?>/css/jquery_mobile/theme_d.css" /> -->
 	</head>
 	<body> 
-		<div data-role="page" id="home">
+		<div data-role="page" id="add_commment">
 		<!--Start Header-->
 			<div data-role="header">				
 				<header>
@@ -19,12 +19,12 @@
 			            <div id="nav-btn"  data-role="controlgroup" data-type="horizontal" data-mini="true">
 						    <a href="<?php echo base_url('index.php');?>" data-role="button" data-icon="home" data-theme="a"><span class="btn-txt">HOME</span></a>
 						    <a href="<?php echo base_url('index.php/user/about');?>" data-role="button" data-icon="info" data-theme="a"><span class="btn-txt">ABOUT</span></a>
-						    <a href="<?php echo base_url('index.php/user/register');?>" data-role="button" data-icon="gear" data-theme="a" data-transition="flip"><span class="btn-txt">REGISTER</span></a>
+						    <a href="<?php echo base_url('index.php/user/logout');?>" data-role="button" data-icon="delete" data-theme="a" data-transition="flip"><span class="btn-txt">LOGOUT</span></a>
 						</div>			            
 						<div id="small-nav">
 							<a href="<?php echo base_url('index.php/user');?>">HOME</a>
 							<a href="<?php echo base_url('index.php/user/about');?>">ABOUT</a>
-							<a href="<?php echo base_url('index.php/user/register');?>" data-transition="flip">REGISTER</a>
+							<a href="<?php echo base_url('index.php/user/logout');?>" data-transition="flip">LOGOUT</a>
 						</div>
 			
 			            
@@ -33,25 +33,11 @@
 			        <h1>Challenge<span>Accepted</span></h1>
 			    </header>
 			</div>
+			
 			<div data-role="content" id="main-content">
-	 <!--End Header-->
-
-				
-				<h2>Welcome to Challenge Accepted</h2>
-
-            <p>Make challenges for yourself and your friends. A simple app that can be used for motivaiton or procrastination!<hr /><a href="<?php echo base_url('index.php/user/register');?>" data-transition="flip">register now</a>, or sign in below.</p>
-
-				
-				<div class="errors"><div><?php echo validation_errors();?></div></div>
-				<?php echo form_open('user'); ?>
-					<input type="hidden" name="form_type" id="form_type" value="login"/>
-					<input type="text" name="si_email" id="si_email" value="seancasey08@gmail.com" placeholder="Email Address"/>
-					<input type="password" name="si_pass" id="si_pass" value="skapunk456" placeholder="Password"/>
-					<input type="submit" class="" value="Sign in" />
-				</form>
-				
-				
-				
+				<h1>Friend Request Successful!</h1>
+				<p>An email has been sent to the email you submitted.  Upon their approval you will be sent a confirmation email and can start challenging them!</p>
+								
 			</div>
 			<div data-role="footer">
 				Challenge Accepted &copy; 2013
@@ -60,5 +46,4 @@
 	 <script type="text/javascript" src="<?php echo base_url(); ?>/js/main.js"></script>
    </body>
 </html>
-
 

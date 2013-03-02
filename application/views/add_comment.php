@@ -18,13 +18,13 @@
 			        <nav>
 			            <div id="nav-btn"  data-role="controlgroup" data-type="horizontal" data-mini="true">
 						    <a href="<?php echo base_url('index.php');?>" data-role="button" data-icon="home" data-theme="a"><span class="btn-txt">HOME</span></a>
-						    <a href="#" data-role="button" data-icon="info" data-theme="a"><span class="btn-txt">ABOUT</span></a>
+						    <a href="<?php echo base_url('index.php/user/about');?>" data-role="button" data-icon="info" data-theme="a"><span class="btn-txt">ABOUT</span></a>
 						    <a href="<?php echo base_url('index.php/user/logout');?>" data-role="button" data-icon="delete" data-theme="a" data-transition="flip"><span class="btn-txt">LOGOUT</span></a>
 						</div>			            
 						<div id="small-nav">
 							<a href="<?php echo base_url('index.php/user');?>">HOME</a>
-							<a href="#">ABOUT</a>
-							<a href="<?php echo base_url('index.php/user/logout');?>" data-transition="flip">Logout</a>
+							<a href="<?php echo base_url('index.php/user/about');?>">ABOUT</a>
+							<a href="<?php echo base_url('index.php/user/logout');?>" data-transition="flip">LOGOUT</a>
 						</div>
 			
 			            
@@ -45,5 +45,10 @@
 				
 			</div>
 			<div data-role="footer">
-				<a href="<?php echo base_url('index.php/user/privacy_policy');?>">Privacy Statement</a> | Challenge Accepted Copyright 2013 | documentation
+				Challenge Accepted &copy; 2013
 			</div>
+			 </div>
+	 <script type="text/javascript" src="<?php echo base_url(); ?>/js/main.js"></script>
+   </body>
+</html>
+
